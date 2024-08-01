@@ -238,13 +238,8 @@ The KNN model showed varying performance across different weather-related variab
 
 
 
-
-
-
-
-
 </details>
-# Milestone 4 
+
 
 <details open>
 <summary><h2>Discussion</h2></summary>
