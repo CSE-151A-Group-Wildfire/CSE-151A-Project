@@ -244,65 +244,74 @@ The KNN model showed varying performance across different weather-related variab
 
 
 </details>
+# Milestone 4 
 
 <details open>
 <summary><h2>Discussion</h2></summary>
-  &nbsp;
-# Discussion
-  &nbsp;
-## Dataset
 &nbsp;
 
-### Non-Normal Distributions
-Several variables, such as `sea_level_pressure`, `relative_humidity`, `hourly_avg_temp`, and `wind_speed`, show non-normal distributions with potential outliers. Skewed distributions may affect the performance of models that assume normally distributed input features.
+## Introduction and Objectives
 
-### Outliers
-The scatter plots suggest the presence of outliers in variables such as `wind_speed` and `hourly_avg_temp`. Outliers can distort the model training process, leading to less accurate predictions.
+The primary goal of this project was to analyze and predict weather conditions in Los Angeles County using a comprehensive dataset from the California Weather Government Website. We focused on identifying trends and patterns in temperature, humidity, wind speed, and other weather variables to understand the local impact of climate change and improve weather prediction accuracy. This section outlines our thought process, methods, and interpretation of results, along with a critical analysis of the outcomes.
 
-### Variability in Data
-There is high variability in `relative_humidity` and `sea_level_pressure`, which might require further normalization or transformation. We normalized these features in the later part.
+## Data Exploration
 
-### Data Preprocessing
-As one of the X values used for prediction, the column `wind_speed` contains too many 0 or 0.0 values. We cannot determine whether this is due to missing data or if the data itself is actually 0. Therefore, when handling missing values, we choose to fill them with the median rather than the mean.
+### Initial Steps
 
-## Linear Regression Model
+Our initial exploration aimed to correlate weather changes with wildfire patterns, leveraging data from both the California Weather and Wildfire Government Websites. However, the merged dataset contained only 991 rows, which was insufficient for robust modeling. Consequently, we decided to focus solely on the weather data, which provided a much larger dataset of 205,642 rows. This decision was crucial as it ensured we had enough data to train and test our models effectively.
 
-### Mean Squared Error (MSE)
-The MSE of 11.77 suggests that the model has a relatively high error in its predictions. This indicates that the predictions are not close to the actual values, leading to less accurate forecasts.
+### Data Visualization and Feature Analysis
 
-### R² Score
-An R² score of 0.48 implies that only 48% of the variance in the target variable (`hourly_avg_temp`) is explained by the features in the model. This is relatively low, indicating that the model is not capturing the underlying patterns effectively.
+To understand the relationships between variables, we created scatter plots, pair plots, and correlation matrix heatmaps. These visualizations revealed significant patterns and correlations, such as the negative relationship between temperature and humidity, and the variability in sea level pressure. These insights guided our feature selection and informed our modeling approach, emphasizing the importance of thorough data exploration in the early stages.
 
-### Temporal Dependencies
-Techniques like time series analysis or adding time-related features (e.g., seasonality, trends) could improve the model's accuracy.
+## Data Preprocessing
 
-### Data Sampling
-Ensuring that the data is representative and balanced across different time periods and conditions is crucial. Stratified sampling or using cross-validation techniques like time-series split can help in better evaluating the model.
+### Handling Missing Values and Normalization
 
-## Model 2
+Preprocessing involved dropping unnecessary columns, handling missing values by filling with means or medians, and converting data types. Extracting date and time components allowed us to calculate hourly and yearly averages. Normalizing key features using MinMaxScaler ensured consistency across the dataset, which is critical for the performance of machine learning models.
 
-### Performance Issues
-The plots show significant deviations between the actual and predicted values for temperature, wind speed, and sea pressure. The model's predictions do not seem to capture the variations in the actual data very well, particularly for wind speed and sea pressure, as the red dashed lines (predicted values) do not align closely with the blue lines (actual values).
+### Challenges and Solutions
 
-### Improvements
+One challenge was the high variability and presence of outliers in variables like wind speed and hourly average temperature. We addressed this by careful normalization and outlier detection. Another issue was the potential non-normal distribution of features, which we mitigated through feature scaling and transformation.
 
-#### Model Complexity
-The neural network architecture used might not be complex enough to capture the underlying patterns in the data. Increasing the number of layers, neurons, or trying different activation functions might improve the model's performance.
+## Model Development
 
-#### Data Augmentation and Cleaning
-Explore additional data cleaning and augmentation techniques to improve the quality of the input data.
+### Neural Network Model
 
-#### Feature Engineering
-Introduce new features or transform existing ones to better capture the relationships in the data.
+Our first model was a neural network, chosen for its ability to capture complex, non-linear relationships. The architecture included an input layer, two hidden layers with ReLU activation, and an output layer. Despite our efforts, the neural network achieved a mean squared error (MSE) of 0.19, indicating moderate prediction accuracy.
 
-#### Cross-Validation
-Implement cross-validation to better estimate the model's performance and reduce overfitting.
+#### Interpretation and Critique
 
+The neural network struggled to improve beyond a certain point, with training and validation loss stabilizing early. This could be due to several factors: the model complexity might not have been sufficient, or our feature selection could have been suboptimal. Additionally, neural networks require extensive hyperparameter tuning and larger datasets to perform optimally, which might have been a limitation.
 
+### K-Nearest Neighbors (KNN) Model
 
+Given the moderate performance of the neural network, we implemented a K-Nearest Neighbors (KNN) model. The KNN model showed significantly better results, with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). The simplicity and effectiveness of KNN in capturing non-linear patterns without assuming an underlying distribution made it well-suited for our dataset.
 
+#### Interpretation and Critique
 
+The KNN model's superior performance suggests it was better at capturing the temporal patterns and variations in weather data. However, it also highlighted the variability in wind speed, which remained a challenge. The KNN model's reliance on the distance metric means it can struggle with high-dimensional data, but in our case, the selected features and normalization helped mitigate this issue.
 
+## Believability and Shortcomings
+
+### Believability of Results
+
+The results, particularly from the KNN model, are believable given the dataset and preprocessing steps. The low MSE values for temperature and sea pressure indicate that the model effectively captured the patterns in the data. However, the moderate MSE for wind speed suggests that this variable's inherent variability requires more sophisticated modeling techniques.
+
+### Shortcomings
+
+- **Data Quality**: Handling missing values and outliers was a significant challenge. Ensuring data quality through more robust preprocessing could improve model performance.
+- **Feature Engineering**: More advanced feature engineering, such as interaction terms or PCA, could enhance model accuracy.
+- **Model Complexity**: The neural network might have benefited from a more complex architecture or different activation functions. Extensive hyperparameter tuning could also improve performance.
+- **Additional Data**: Incorporating more diverse datasets, such as satellite data or regional weather records, could provide additional context and improve predictions.
+
+## Future Work
+
+Future projects should focus on integrating additional datasets to enrich the analysis. Exploring more advanced machine learning models like ensemble methods (Random Forests or Gradient Boosting) or deep learning architectures could provide better results. Extensive hyperparameter tuning and cross-validation techniques are essential for optimizing model performance. Addressing data quality issues and continually updating the dataset will also be crucial for maintaining prediction accuracy.
+
+## Conclusion
+
+Our project underscores the value of thorough data exploration and preprocessing in building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables compared to the neural network. These insights contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. We are excited about the possibilities for further improving weather prediction models and look forward to refining our approach in future projects.
 
 </details>
 
