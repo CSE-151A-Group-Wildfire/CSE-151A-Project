@@ -95,6 +95,9 @@ In conclusion, the correlation matrix heatmap helps us understand the relationsh
 ## Model 1: Neural Network 
 
 
+For our first ever model, we decided to create a neural network that can be used to predict the temperature, wind speed, sea level pressure, and humidity. To predict the temperature, wind speed, and sea level pressure based on the hour of the day, we first prepared and cleaned our data. We extracted the relevant features from their respective DataFrames and combined them into a single DataFrame, removing any rows with missing values. After separating the cleaned data into individual columns for hour, temperature, wind speed, and sea level pressure, we normalized the temperature, wind speed, and sea level pressure features using MinMaxScaler to ensure they were within a range of 0 to 1. The hour column was used as the input feature (X), while the normalized temperature, wind speed, humidity, and sea level pressure columns were combined to form the target labels (y).
+
+Next, we built and trained a neural network model using Keras. We split our dataset into training and test sets and created a neural network with an input layer, two hidden layers, and an output layer. The model was compiled using Stochastic Gradient Descent (SGD) as the optimizer and Mean Squared Error (MSE) as the loss function. We trained the model for 20 epochs with a batch size of 32, validated it on a portion of the training data, and then evaluated its performance on the test set. Finally, we used the trained model to predict the labels for the test set and compared these predictions with the actual values to assess the model's accuracy. Our model 1 has a mse around 0.19 which indicates a somewhat accurate prediction.
 
 
 
