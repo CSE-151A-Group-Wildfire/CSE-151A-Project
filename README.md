@@ -114,7 +114,7 @@ This structured approach allows us to leverage the power of neural networks to p
 
 &nbsp;
 
-## Model 2: K Nearest Neighbor 
+# Model 2: K Nearest Neighbor 
 
 
 The second model we decided to use is the KNN, K Nearest Neighbor. This model was selected for predicting weather-related variables due to its simplicity and effectiveness in capturing patterns in data without assuming an underlying distribution. The KNN algorithm works by finding the closest training examples in the feature space and predicting the target value based on the average of these neighbors. This approach makes it particularly well-suited for problems where the relationship between features and the target variable is non-linear.
