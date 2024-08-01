@@ -291,7 +291,8 @@ The KNN model's superior performance suggests it was better at capturing the tem
 
 ### Believability of Results
 
-The results, particularly from the KNN model, are believable given the dataset and preprocessing steps. The low MSE values for temperature and sea pressure indicate that the model effectively captured the patterns in the data. However, the moderate MSE for wind speed suggests that this variable's inherent variability requires more sophisticated modeling techniques.
+The results, particularly from the KNN model, are believable given the dataset and preprocessing steps. The low MSE values for temperature and sea pressure indicate that the model effectively captured the patterns in the data. However, the moderate MSE for wind speed suggests that this variable's inherent variability requires more sophisticated modeling techniques.Reflecting on our project, we recognize several areas for improvement. One key area is the use of more features to predict weather patterns. **Generally, weather patterns are cyclical throughout the day, so we initially used the hour to capture these overall patterns.** However, incorporating additional weather variables, such as atmospheric pressure, precipitation, and cloud cover, could enhance model accuracy. Advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA), could also improve model performance. Extensive hyperparameter tuning and addressing data quality issues, particularly handling missing values and outliers, are crucial for reliable predictions. Implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
+
 
 ### Shortcomings
 
@@ -322,11 +323,12 @@ Our analysis involved creating scatter plots, pair plots, and correlation matrix
 
 We then implemented a K-Nearest Neighbors (KNN) model, which performed better with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). The KNN model effectively captured temporal patterns and variations, particularly in temperature, demonstrating superior performance compared to the neural network.
 
-Reflecting on our project, we recognize several areas for improvement. One key area is the use of more features to predict weather patterns. Incorporating additional weather variables, such as atmospheric pressure, precipitation, and cloud cover, could enhance model accuracy. Advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA), could also improve model performance. Extensive hyperparameter tuning and addressing data quality issues, particularly handling missing values and outliers, are crucial for reliable predictions. Implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
+Reflecting on our project, we recognize several areas for improvement. One key area is the use of more features to predict weather patterns. **Generally, weather patterns are cyclical throughout the day, so we initially used the hour to capture these overall patterns.** However, incorporating additional weather variables, such as atmospheric pressure, precipitation, and cloud cover, could enhance model accuracy. Advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA), could also improve model performance. Extensive hyperparameter tuning and addressing data quality issues, particularly handling missing values and outliers, are crucial for reliable predictions. Implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
 
 In conclusion, thorough data exploration and preprocessing are vital for building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables. The insights gained from this project contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. Future work should focus on incorporating more features, refining feature engineering, and continually updating the dataset to maintain prediction accuracy.
 
 </details>
+
 
 
 <details open>
