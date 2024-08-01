@@ -50,6 +50,8 @@ Features such as temperature, wind speed, and sea level pressure were normalized
 
 ## Scatter Plot:
 
+![scatterplot](https://github.com/user-attachments/assets/8dcf46ea-5671-473e-a66e-62f071899ac0)
+
 The scatter plot that we made involved the the yearly average temperature over a 24 years spanning 2000 to 2024. With each blue dot representing the average temperature for a specific year. The X-axis shows the years, and Y-axis represents the yearly average temperatures. The plot reveals variability in average temperatures across the years, indicating fluctuations and possible trends in temperature changes. This visualization helps identify patterns, such as increasing or decreasing temperatures, which may indicate climate change. It also highlights any outliers or unusual values that warrant further investigation, providing a foundational understanding for further analysis and modeling.
 
 
@@ -71,6 +73,8 @@ In conclusion, the pair plot helps us understand the relationships between weath
 
 
 ## Correlation Matrix: 
+
+![correlation](https://github.com/user-attachments/assets/4693697d-9a74-4bfb-b8e6-7488d896ba50)
 
 The correlation matrix heatmap shows the relationships between different weather variables in our dataset. This is important for selecting features for predictive modeling and understanding how these variables interact.
 
@@ -172,6 +176,9 @@ The Mean Squared Error (MSE) values for the predictions were:
 - Wind Speed: 0.018628
  &nbsp;
 - Sea Pressure: 0.006608
+
+![knn](https://github.com/user-attachments/assets/cafba7d4-ad9d-46ed-b5f1-87e45e6aa27a)
+
 
 &nbsp;
 Temperature Prediction:
