@@ -77,7 +77,7 @@ In conclusion, the correlation matrix heatmap helps us understand the relationsh
 
 &nbsp;
 
-# Weather Prediction Model 1: Neural Network
+# Model 1: Neural Network
 
 The first model we employed for weather prediction is a Neural Network. Neural networks are powerful tools for capturing complex relationships in data, making them suitable for problems where the underlying structure might not be linear. Here's a breakdown of the approach we took:
 
@@ -283,6 +283,8 @@ The neural network struggled to improve beyond a certain point, with training an
 
 Given the moderate performance of the neural network, we implemented a K-Nearest Neighbors (KNN) model. The KNN model showed significantly better results, with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). The simplicity and effectiveness of KNN in capturing non-linear patterns without assuming an underlying distribution made it well-suited for our dataset.
 
+Given that the KNN is the better fit. We believe it is the better model of the two
+
 #### Interpretation and Critique
 
 The KNN model's superior performance suggests it was better at capturing the temporal patterns and variations in weather data. However, it also highlighted the variability in wind speed, which remained a challenge. The KNN model's reliance on the distance metric means it can struggle with high-dimensional data, but in our case, the selected features and normalization helped mitigate this issue.
@@ -305,9 +307,7 @@ The results, particularly from the KNN model, are believable given the dataset a
 
 Future projects should focus on integrating additional datasets to enrich the analysis. Exploring more advanced machine learning models like ensemble methods (Random Forests or Gradient Boosting) or deep learning architectures could provide better results. Extensive hyperparameter tuning and cross-validation techniques are essential for optimizing model performance. Addressing data quality issues and continually updating the dataset will also be crucial for maintaining prediction accuracy.
 
-## Conclusion
 
-Our project underscores the value of thorough data exploration and preprocessing in building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables compared to the neural network. These insights contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. We are excited about the possibilities for further improving weather prediction models and look forward to refining our approach in future projects.
 
 </details>
 
