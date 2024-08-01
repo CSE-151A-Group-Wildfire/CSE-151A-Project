@@ -4,7 +4,7 @@
 <summary><h2>Introduction</h2></summary>
 &nbsp;
 
-The focus of the project was to analyze and predict weather conditions in Los Angeles County using a dataset maintained and saved by the California Weather Government Website. The dataset includes over twenty years of weather data, which is essential for predicting weather conditions on an hourly basis. Specifically, we aimed to predict three key weather variables: temperature, wind speed, sea pressure, and humidity, using hours, days, and years as features. By understanding trends and patterns in these variables, we can gain insights into climate change and its local impact.
+The focus of the project was to analyze and predict weather conditions in Los Angeles County using a dataset maintained and saved by the California Weather Government Website. The dataset includes over twenty years of weather data, which is essential for predicting weather conditions on an hourly basis. Specifically, we aimed to predict three key weather variables: temperature, wind speed, sea pressure, and humidity, using hours. By understanding trends and patterns in these variables, we can gain insights into climate change and its local impact.
 
 We chose this project because global warming and climate change are issues that affect all of us. Selecting a project that allows us to observe these changes in our backyard can help bring the message home. Accurate weather predictions can improve resource management, provide timely warnings for extreme weather events, and support informed decision-making processes. The broader impact of this work includes practical applications in urban planning, public safety, and environmental conservation, making it a valuable contribution to both scientific research and community welfare.
 
@@ -114,7 +114,7 @@ This structured approach allows us to leverage the power of neural networks to p
 
 &nbsp;
 
-## Model 2: K Nearest Neighbor 
+# Model 2: K Nearest Neighbor 
 
 
 The second model we decided to use is the KNN, K Nearest Neighbor. This model was selected for predicting weather-related variables due to its simplicity and effectiveness in capturing patterns in data without assuming an underlying distribution. The KNN algorithm works by finding the closest training examples in the feature space and predicting the target value based on the average of these neighbors. This approach makes it particularly well-suited for problems where the relationship between features and the target variable is non-linear.
@@ -174,7 +174,7 @@ plt.show()
 ## Model 1: Neural Network 
 
 ### Overview
-The neural network model was trained to predict three key weather variables: temperature, wind speed, and sea pressure using hours, days, and years as features. The model architecture included an input layer, two hidden layers, and an output layer, with ReLU activation functions to capture non-linear relationships.
+The neural network model was trained to predict three key weather variables: temperature, wind speed, and sea pressure using hours. The model architecture included an input layer, two hidden layers, and an output layer, with ReLU activation functions to capture non-linear relationships.
 
 ### Model Performance
 The model's performance was evaluated using Mean Squared Error (MSE) as the primary metric. Here are the key results:
