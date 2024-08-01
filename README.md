@@ -55,6 +55,8 @@ The scatter plot that we made involved the the yearly average temperature over a
 
 ## Pair Plot:
 
+![pairplot](https://github.com/user-attachments/assets/143dd7cc-a989-4852-8956-bfea441d2993)
+
 The pair plot shows the relationships between various weather variables in our dataset. It helps us see patterns, correlations, and potential outliers that are important for building predictive models.
 
 The plots for year, month, day, and hour show how data points are distributed over time. The month, day, and hour data are collected at regular intervals, while the year data is spread continuously from 2000 to 2025. 
