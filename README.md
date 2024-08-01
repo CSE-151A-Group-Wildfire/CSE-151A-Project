@@ -26,10 +26,7 @@ We initially started our data exploration by analyzing the correlation between w
 
 &nbsp;
 
-</details>
-
-<details open>
-<summary><h2>Pre-Processing </h2></summary>
+## Pre-Processing
 
 The preprocessing phase focused on cleaning and preparing our data from the weather stations in Los Angeles for modeling. To ensure that our model produced the best output, we took the following steps:
 
@@ -85,8 +82,11 @@ These correlations are useful for predictive modeling. Variables like air temper
 
 In conclusion, the correlation matrix heatmap helps us understand the relationships between weather variables. Strong correlations between temperature-related variables highlight their connections, while weak correlations with long-term factors suggest that immediate conditions are more important for weather predictions. This understanding will help us select the right features and improve the accuracy of our predictive models.
 
-</details>
 
+
+
+&nbsp;
+## Model 1: Neural Network 
 
 
 
@@ -96,22 +96,8 @@ In conclusion, the correlation matrix heatmap helps us understand the relationsh
 
 
 &nbsp;
-<details open>
-<summary><h2>Model 1: Neural Network </h2></summary>
 
-</details>
-
-
-
-
-
-
-
-&nbsp;
-
-<details open>
-<summary><h2>Model 2: K Nearest Neighbor  </h2></summary>
-
+## Model 2: K Nearest Neighbor 
 
 
 The second model we decided to use is the KNN, K Nearest Neighbor. This model was selected for predicting weather-related variables due to its simplicity and effectiveness in capturing patterns in data without assuming an underlying distribution. The KNN algorithm works by finding the closest training examples in the feature space and predicting the target value based on the average of these neighbors. This approach makes it particularly well-suited for problems where the relationship between features and the target variable is non-linear.
@@ -159,7 +145,7 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 ```
-</details>
+
 
 
 
@@ -220,9 +206,11 @@ The KNN model showed varying performance across different weather-related variab
 
 <details open>
 <summary><h2>Discussion</h2></summary>
+  &nbsp;
 # Discussion
   &nbsp;
 ## Dataset
+&nbsp;
 
 ### Non-Normal Distributions
 Several variables, such as `sea_level_pressure`, `relative_humidity`, `hourly_avg_temp`, and `wind_speed`, show non-normal distributions with potential outliers. Skewed distributions may affect the performance of models that assume normally distributed input features.
