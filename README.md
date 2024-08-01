@@ -2,8 +2,12 @@
 
 <details open>
 <summary><h2>Introduction</h2></summary>
+&nbsp;
 
-TYPE THE INTRODUCTION HERE
+The focus of the project was to analyze and predict weather conditions in Los Angeles County using a dataset maintained and saved by the California Weather Government Website. The dataset includes over twenty years of weather data, which is essential for predicting weather conditions on an hourly basis. By understanding trends and patterns, we can use weather variables such as temperature, humidity, and wind speed to gain insights into climate change and its local impact.
+We chose this project because global warming and climate change are issues that affect all of us. Selecting a project that allows us to observe these changes in our backyard can help bring the message home. Accurate weather predictions can improve resource management, provide timely warnings for extreme weather events, and support informed decision-making processes. The broader impact of this work includes practical applications in urban planning, public safety, and environmental conservation, making it a valuable contribution to both scientific research and community welfare.
+
+
 
 </details>
 
@@ -11,15 +15,80 @@ TYPE THE INTRODUCTION HERE
 <summary><h2>Methods</h2></summary>
 
 ## Data Exploration 
+&nbsp;
+
+We initially started our data exploration by analyzing the correlation between weather changes over the past few decades and their direct impact on wildfire patterns. We were able to get data of where and when wildfires occurred in Los Angeles County through the California Wildfires Government Website. We started to realized when we started merging the two datasets from California Weather and California Wildfires that we only had 991 rows to train our model with which isn’t enough rows. As a result, we quickly decided to remove the the wildfire dataset and only use the weather dataset from the California Weather Government Website. With our weather dataset alone, we were able to use 205642 rows for our models.  As a result, we decided to analyze and predict weather conditions in Los Angeles County instead.
+
 
 
 
 
 
 &nbsp;
-## Pre-Processing 
 
-## **Correlation Matrix**
+</details>
+
+<details open>
+<summary><h2>Pre-Processing </h2></summary>
+
+The preprocessing phase focused on cleaning and preparing our data from the weather stations in Los Angeles for modeling. To ensure that our model produced the best output, we took the following steps:
+
+##Dropping Unnecessary Columns:
+Many columns were determined to be irrelevant for predicting the weather in LA County. These columns included 'Unnamed: 32', 'Unnamed: 41', 'metar', 'metar_origin', 'pressure_change_code', 'weather_cond_code', 'pressure_change_code', 'visibility', 'cloud_layer_1', 'cloud_layer_2', 'cloud_layer_3', 'wind_cardinal_direction', 'cloud_layer_1_code', 'cloud_layer_2_code', 'cloud_layer_3_code', and 'heat_index'.
+
+##Handling Missing Values:
+Missing values were common in many columns, but for our target column, 'air_temp', there were only a few missing values. We handled this by dropping those rows, and for numeric columns, we replaced missing values with the mean of their respective columns to maintain consistency.
+
+##Data Type Conversion:
+The 'air_temp' column was converted to a numeric type to ensure accurate calculations during modeling.
+
+##Date and Time Components Extraction:
+The 'date_time' column was converted to a datetime format, and additional columns for year, month, day, and hour were extracted. This allowed for a more detailed interpretation of the weather data and enabled us to model weather conditions based on hourly data.
+
+##Calculating Hourly and Yearly Averages:
+Hourly average temperatures were calculated by grouping data by year, month, day, and hour. Similar calculations were performed for wind speed and sea level pressure to obtain hourly averages. Yearly average temperatures and precipitation were also calculated to observe long-term trends.
+
+##Normalization:
+Features such as temperature, wind speed, and sea level pressure were normalized using MinMaxScaler to ensure that our features remained consistent. This step was crucial for improving the performance of our models.
+
+##Scatter Plot:
+
+The scatter plot that we made involved the the yearly average temperature over a 24 years spanning 2000 to 2024. With each blue dot representing the average temperature for a specific year. The X-axis shows the years, and Y-axis represents the yearly average temperatures. The plot reveals variability in average temperatures across the years, indicating fluctuations and possible trends in temperature changes. This visualization helps identify patterns, such as increasing or decreasing temperatures, which may indicate climate change. It also highlights any outliers or unusual values that warrant further investigation, providing a foundational understanding for further analysis and modeling.
+
+
+##Pair Plot:
+
+The pair plot shows the relationships between various weather variables in our dataset. It helps us see patterns, correlations, and potential outliers that are important for building predictive models.
+
+The plots for year, month, day, and hour show how data points are distributed over time. The month, day, and hour data are collected at regular intervals, while the year data is spread continuously from 2000 to 2025. 
+
+Sea level pressure varies widely but often centers around 1010-1020 hPa. There are noticeable changes in sea level pressure across different months and hours, hinting at seasonal and daily effects. Relative humidity ranges from 0% to 100%, showing a negative correlation with air temperature and hourly average temperature. This means higher temperatures generally come with lower humidity.
+
+Hourly average temperature strongly correlates with air temperature, as expected. The plots show that temperatures vary significantly throughout the day and year. Wind speed has a wide range but clusters at lower speeds. It changes across different times of the day and year but doesn't strongly correlate with other variables.
+
+These insights are useful for predictive modeling. Air temperature, sea level pressure, and relative humidity have clear patterns and correlations that can improve model accuracy. Daily and seasonal temperature and humidity variations should be included in models. The negative correlation between temperature and humidity and the variability in sea level pressure are important factors for temperature prediction models.
+
+In conclusion, the pair plot helps us understand the relationships between weather variables, highlighting the importance of temporal patterns and correlations for predictive modeling. These insights will help us build more accurate and reliable weather prediction models. This analysis underscores the value of exploratory data analysis in guiding the modeling process.
+
+
+##Correlation Matrix: 
+
+The correlation matrix heatmap shows the relationships between different weather variables in our dataset. This is important for selecting features for predictive modeling and understanding how these variables interact.
+
+Air temperature has a strong positive correlation with itself and a moderate positive correlation with hourly average temperature and wind speed. It also has a negative correlation with relative humidity and sea level pressure. Wind speed is moderately positively correlated with air temperature and hourly average temperature, and negatively correlated with sea level pressure. Sea level pressure is negatively correlated with air temperature, wind speed, relative humidity, and hourly average temperature.
+
+Precipitation has weak correlations with most variables but shows a slight positive correlation with wind speed and relative humidity. The hour of the day correlates positively with air temperature and hourly average temperature, showing that temperatures vary significantly within a day. Year and month have very weak correlations with most variables, indicating that short-term factors influence weather more than long-term trends. Relative humidity has a strong negative correlation with air temperature and hourly average temperature, indicating that higher temperatures are associated with lower humidity levels.
+
+Hourly average temperature is strongly positively correlated with air temperature and moderately positively correlated with wind speed and hour. It has a negative correlation with sea level pressure and relative humidity.
+
+These correlations are useful for predictive modeling. Variables like air temperature, wind speed, and hourly average temperature are important for predictions. The negative correlation between air temperature and relative humidity suggests that humidity should be considered when predicting temperature. Weak correlations of year and month with other variables suggest that short-term features like hour are more important for predictions.
+
+In conclusion, the correlation matrix heatmap helps us understand the relationships between weather variables. Strong correlations between temperature-related variables highlight their connections, while weak correlations with long-term factors suggest that immediate conditions are more important for weather predictions. This understanding will help us select the right features and improve the accuracy of our predictive models.
+
+</details>
+
+
+
 
 
 
@@ -66,14 +135,9 @@ print(f"Mean Squared Error for Wind Speed: {mse_wind}")
 print(f"Mean Squared Error for Sea Pressure: {mse_sea}")
 ```
 &nbsp;
-We visualized the actual versus predicted values to gain further insights into the model's performance
+We visualized the actual versus predicted values to gain further insights into the model's performance. Here is an example for Temperature. 
 &nbsp;
 ```
-
-plt.figure(figsize=(15, 5))
-
-sorted_indices = np.argsort(X_test.flatten())
-X_test_sorted = X_test.flatten()[sorted_indices]
 
 #Temperature
 plt.subplot(1, 3, 1)
@@ -82,24 +146,6 @@ plt.plot(X_test_sorted, y_pred[sorted_indices, 0], label='Predicted Temperature'
 plt.xlabel('Hour')
 plt.ylabel('Temperature')
 plt.title('Actual vs Predicted Temperature')
-plt.legend()
-
-#Wind Speed
-plt.subplot(1, 3, 2)
-plt.plot(X_test_sorted, y_test.iloc[sorted_indices, 1], label='Actual Wind Speed', color='blue')
-plt.plot(X_test_sorted, y_pred[sorted_indices, 1], label='Predicted Wind Speed', color='red', linestyle='--')
-plt.xlabel('Hour')
-plt.ylabel('Wind Speed')
-plt.title('Actual vs Predicted Wind Speed')
-plt.legend()
-
-#Sea Pressure
-plt.subplot(1, 3, 3)
-plt.plot(X_test_sorted, y_test.iloc[sorted_indices, 2], label='Actual Sea Pressure', color='blue')
-plt.plot(X_test_sorted, y_pred[sorted_indices, 2], label='Predicted Sea Pressure', color='red', linestyle='--')
-plt.xlabel('Hour')
-plt.ylabel('Sea Pressure')
-plt.title('Actual vs Predicted Sea Pressure')
 plt.legend()
 
 plt.tight_layout()
@@ -114,6 +160,8 @@ plt.show()
 <summary><h2>Results</h2></summary>
 
 ## Model 1 
+
+
 
 
 ## Model 2: KNN Final Model 
@@ -163,11 +211,88 @@ The KNN model showed varying performance across different weather-related variab
 
 <details open>
 <summary><h2>Discussion</h2></summary>
+# Discussion
+  &nbsp;
+## Dataset
+
+### Non-Normal Distributions
+Several variables, such as `sea_level_pressure`, `relative_humidity`, `hourly_avg_temp`, and `wind_speed`, show non-normal distributions with potential outliers. Skewed distributions may affect the performance of models that assume normally distributed input features.
+
+### Outliers
+The scatter plots suggest the presence of outliers in variables such as `wind_speed` and `hourly_avg_temp`. Outliers can distort the model training process, leading to less accurate predictions.
+
+### Variability in Data
+There is high variability in `relative_humidity` and `sea_level_pressure`, which might require further normalization or transformation. We normalized these features in the later part.
+
+### Data Preprocessing
+As one of the X values used for prediction, the column `wind_speed` contains too many 0 or 0.0 values. We cannot determine whether this is due to missing data or if the data itself is actually 0. Therefore, when handling missing values, we choose to fill them with the median rather than the mean.
+
+## Model 1
+
+### Mean Squared Error (MSE)
+The MSE of 11.77 suggests that the model has a relatively high error in its predictions. This indicates that the predictions are not close to the actual values, leading to less accurate forecasts.
+
+### R² Score
+An R² score of 0.48 implies that only 48% of the variance in the target variable (`hourly_avg_temp`) is explained by the features in the model. This is relatively low, indicating that the model is not capturing the underlying patterns effectively.
+
+### Temporal Dependencies
+Techniques like time series analysis or adding time-related features (e.g., seasonality, trends) could improve the model's accuracy.
+
+### Data Sampling
+Ensuring that the data is representative and balanced across different time periods and conditions is crucial. Stratified sampling or using cross-validation techniques like time-series split can help in better evaluating the model.
+
+## Model 2
+
+### Performance Issues
+The plots show significant deviations between the actual and predicted values for temperature, wind speed, and sea pressure. The model's predictions do not seem to capture the variations in the actual data very well, particularly for wind speed and sea pressure, as the red dashed lines (predicted values) do not align closely with the blue lines (actual values).
+
+### Improvements
+
+#### Model Complexity
+The neural network architecture used might not be complex enough to capture the underlying patterns in the data. Increasing the number of layers, neurons, or trying different activation functions might improve the model's performance.
+
+#### Data Augmentation and Cleaning
+Explore additional data cleaning and augmentation techniques to improve the quality of the input data.
+
+#### Feature Engineering
+Introduce new features or transform existing ones to better capture the relationships in the data.
+
+#### Cross-Validation
+Implement cross-validation to better estimate the model's performance and reduce overfitting.
+
+
+
+
+
+
 
 </details>
 
 <details open>
 <summary><h2>Conclusion</h2></summary>
+&nbsp;
+
+In this project, we explored and analyzed a weather dataset to develop predictive models for temperature and precipitation. By examining the data, we identified patterns such as daily and seasonal temperature changes, and yearly trends in temperature and rainfall. These insights helped guide our modeling choices.
+&nbsp;
+
+Our preprocessing steps included removing unnecessary columns, filling in missing values, and extracting date and time components. This ensured the data was clean and ready for modeling.
+&nbsp;
+
+We tested three models: Linear Regression, Neural Network, and K-Nearest Neighbors (KNN). The Linear Regression model performed best with an MSE of 11.77 and an R² Score of 0.48. The Neural Network struggled with an MSE of 0.17. The KNN model had an MSE of 0.00524 for temperature, 0.0186 for wind, and 0.00661 for sea pressure, performing slightly better than the Neural Network but not as well as Linear Regression.
+
+&nbsp;
+These results suggest that the simpler Linear Regression model captured the data patterns effectively, while the more complex models may need further tuning and feature engineering.
+&nbsp;
+
+Looking back, there are several things we wish we could have done differently. Firstly, exploring additional features or transformations might have uncovered hidden patterns and improved the performance of the more complex models. For example, incorporating interaction terms or lagged variables could have helped capture temporal dependencies in the weather data. Additionally, trying out ensemble methods, such as Random Forests or Gradient Boosting, might have provided better predictions by combining the strengths of multiple models.
+&nbsp;
+
+Another area for improvement is data quality. Ensuring more accurate and consistent data collection, and addressing inconsistencies more thoroughly during preprocessing, could lead to more reliable predictions. Finally, conducting a more extensive hyperparameter tuning for the Neural Network and KNN models might have yielded better results.
+&nbsp;
+
+In future projects, we would focus on these aspects to enhance model performance. This project highlights the critical role of data exploration and preprocessing in building effective predictive models. Continuous improvements in these areas are key to achieving more accurate and reliable weather predictions.
+
+&nbsp;
 
 </details>
 
