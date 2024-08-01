@@ -233,7 +233,7 @@ There is high variability in `relative_humidity` and `sea_level_pressure`, which
 ### Data Preprocessing
 As one of the X values used for prediction, the column `wind_speed` contains too many 0 or 0.0 values. We cannot determine whether this is due to missing data or if the data itself is actually 0. Therefore, when handling missing values, we choose to fill them with the median rather than the mean.
 
-## Model 1
+## Linear Regression Model
 
 ### Mean Squared Error (MSE)
 The MSE of 11.77 suggests that the model has a relatively high error in its predictions. This indicates that the predictions are not close to the actual values, leading to less accurate forecasts.
