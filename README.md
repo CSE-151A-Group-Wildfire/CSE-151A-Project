@@ -33,30 +33,30 @@ We initially started our data exploration by analyzing the correlation between w
 
 The preprocessing phase focused on cleaning and preparing our data from the weather stations in Los Angeles for modeling. To ensure that our model produced the best output, we took the following steps:
 
-##Dropping Unnecessary Columns:
+## Dropping Unnecessary Columns:
 Many columns were determined to be irrelevant for predicting the weather in LA County. These columns included 'Unnamed: 32', 'Unnamed: 41', 'metar', 'metar_origin', 'pressure_change_code', 'weather_cond_code', 'pressure_change_code', 'visibility', 'cloud_layer_1', 'cloud_layer_2', 'cloud_layer_3', 'wind_cardinal_direction', 'cloud_layer_1_code', 'cloud_layer_2_code', 'cloud_layer_3_code', and 'heat_index'.
 
-##Handling Missing Values:
+## Handling Missing Values:
 Missing values were common in many columns, but for our target column, 'air_temp', there were only a few missing values. We handled this by dropping those rows, and for numeric columns, we replaced missing values with the mean of their respective columns to maintain consistency.
 
-##Data Type Conversion:
+## Data Type Conversion:
 The 'air_temp' column was converted to a numeric type to ensure accurate calculations during modeling.
 
-##Date and Time Components Extraction:
+## Date and Time Components Extraction:
 The 'date_time' column was converted to a datetime format, and additional columns for year, month, day, and hour were extracted. This allowed for a more detailed interpretation of the weather data and enabled us to model weather conditions based on hourly data.
 
-##Calculating Hourly and Yearly Averages:
+## Calculating Hourly and Yearly Averages:
 Hourly average temperatures were calculated by grouping data by year, month, day, and hour. Similar calculations were performed for wind speed and sea level pressure to obtain hourly averages. Yearly average temperatures and precipitation were also calculated to observe long-term trends.
 
-##Normalization:
+## Normalization:
 Features such as temperature, wind speed, and sea level pressure were normalized using MinMaxScaler to ensure that our features remained consistent. This step was crucial for improving the performance of our models.
 
-##Scatter Plot:
+## Scatter Plot:
 
 The scatter plot that we made involved the the yearly average temperature over a 24 years spanning 2000 to 2024. With each blue dot representing the average temperature for a specific year. The X-axis shows the years, and Y-axis represents the yearly average temperatures. The plot reveals variability in average temperatures across the years, indicating fluctuations and possible trends in temperature changes. This visualization helps identify patterns, such as increasing or decreasing temperatures, which may indicate climate change. It also highlights any outliers or unusual values that warrant further investigation, providing a foundational understanding for further analysis and modeling.
 
 
-##Pair Plot:
+## Pair Plot:
 
 The pair plot shows the relationships between various weather variables in our dataset. It helps us see patterns, correlations, and potential outliers that are important for building predictive models.
 
@@ -71,7 +71,7 @@ These insights are useful for predictive modeling. Air temperature, sea level pr
 In conclusion, the pair plot helps us understand the relationships between weather variables, highlighting the importance of temporal patterns and correlations for predictive modeling. These insights will help us build more accurate and reliable weather prediction models. This analysis underscores the value of exploratory data analysis in guiding the modeling process.
 
 
-##Correlation Matrix: 
+## Correlation Matrix: 
 
 The correlation matrix heatmap shows the relationships between different weather variables in our dataset. This is important for selecting features for predictive modeling and understanding how these variables interact.
 
@@ -96,7 +96,11 @@ In conclusion, the correlation matrix heatmap helps us understand the relationsh
 
 
 &nbsp;
-## Model 1: Neural Network 
+<details open>
+<summary><h2>Model 1: Neural Network </h2></summary>
+
+</details>
+
 
 
 
@@ -104,7 +108,11 @@ In conclusion, the correlation matrix heatmap helps us understand the relationsh
 
 
 &nbsp;
-## Model 2: K Nearest Neighbor 
+
+<details open>
+<summary><h2>Model 2: K Nearest Neighbor  </h2></summary>
+
+
 
 The second model we decided to use is the KNN, K Nearest Neighbor. This model was selected for predicting weather-related variables due to its simplicity and effectiveness in capturing patterns in data without assuming an underlying distribution. The KNN algorithm works by finding the closest training examples in the feature space and predicting the target value based on the average of these neighbors. This approach makes it particularly well-suited for problems where the relationship between features and the target variable is non-linear.
 
@@ -151,6 +159,7 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 ```
+</details>
 
 
 
