@@ -322,12 +322,12 @@ Our analysis involved creating scatter plots, pair plots, and correlation matrix
 
 We then implemented a K-Nearest Neighbors (KNN) model, which performed better with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). The KNN model effectively captured temporal patterns and variations, particularly in temperature, demonstrating superior performance compared to the neural network.
 
-Reflecting on our project, we recognize several areas for improvement. Integrating more diverse datasets, such as satellite data, could enhance our analysis. Advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA), could improve model accuracy. Exploring more sophisticated machine learning models like ensemble methods or deep learning architectures might also yield better results. Extensive hyperparameter tuning and addressing data quality issues, particularly handling missing values and outliers, are crucial for reliable predictions. Implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
+Reflecting on our project, we recognize several areas for improvement. One key area is the use of more features to predict weather patterns. Incorporating additional weather variables, such as atmospheric pressure, precipitation, and cloud cover, could enhance model accuracy. Advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA), could also improve model performance. Extensive hyperparameter tuning and addressing data quality issues, particularly handling missing values and outliers, are crucial for reliable predictions. Implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
 
-In conclusion, thorough data exploration and preprocessing are vital for building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables. The insights gained from this project contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. Future work should focus on refining feature engineering, exploring advanced modeling techniques, and continually updating the dataset to maintain prediction accuracy.
-
+In conclusion, thorough data exploration and preprocessing are vital for building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables. The insights gained from this project contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. Future work should focus on incorporating more features, refining feature engineering, and continually updating the dataset to maintain prediction accuracy.
 
 </details>
+
 
 <details open>
 <summary><h2>Statement of Collaboration</h2></summary>
