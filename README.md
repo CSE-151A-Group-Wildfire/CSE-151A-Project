@@ -314,26 +314,53 @@ Our project underscores the value of thorough data exploration and preprocessing
 <summary><h2>Conclusion</h2></summary>
 &nbsp;
 
-In this project, we aimed to analyze and predict weather conditions in Los Angeles County using a comprehensive dataset from the California Weather Government Website, which includes over twenty years of weather data. Our focus was on identifying trends and patterns in temperature, humidity, wind speed, and other weather variables to understand the local impact of climate change and improve weather prediction accuracy.
+In this project, we analyzed and predicted weather conditions in Los Angeles County using a dataset from the California Weather Government Website, which includes over twenty years of weather data. Our goal was to identify trends and patterns in temperature, humidity, wind speed, and other weather variables to understand the local impact of climate change and improve prediction accuracy.
 
-We began our data exploration by attempting to correlate weather changes with wildfire patterns. However, due to insufficient data when merging the two datasets, we decided to focus solely on the weather data, resulting in a robust dataset of 205,642 rows. Our preprocessing steps included dropping unnecessary columns, handling missing values, converting data types, and extracting date and time components. We also calculated hourly and yearly averages and normalized key features to prepare the data for modeling.
+We initially attempted to correlate weather changes with wildfire patterns, but due to insufficient data, we focused solely on weather data, resulting in a robust dataset of 205,642 rows. Our preprocessing steps included dropping unnecessary columns, handling missing values, converting data types, extracting date and time components, calculating hourly and yearly averages, and normalizing key features.
 
-Our analysis included creating scatter plots, pair plots, and correlation matrix heatmaps to visualize relationships between variables and identify significant patterns. We initially developed a neural network model to predict temperature, wind speed, sea level pressure, and humidity based on hourly data. The model achieved a mean squared error (MSE) of 0.19, indicating moderate prediction accuracy. 
+Our analysis involved creating scatter plots, pair plots, and correlation matrix heatmaps to visualize relationships between variables. We developed a neural network model to predict temperature, wind speed, sea level pressure, and humidity based on hourly data, achieving a mean squared error (MSE) of 0.19. 
 
-We then implemented a K-Nearest Neighbors (KNN) model, which showed promising results with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). This model effectively captured the temporal patterns and variations in temperature, although it struggled more with the variability in wind speed. The KNN model's performance was superior to the neural network, highlighting its effectiveness in predicting weather variables.
+We then implemented a K-Nearest Neighbors (KNN) model, which performed better with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). The KNN model effectively captured temporal patterns and variations, particularly in temperature, demonstrating superior performance compared to the neural network.
 
-Reflecting on our project, there are several things we wish we could have done differently. Firstly, integrating more diverse datasets, such as satellite data or other regional weather records, could have enriched our analysis and potentially improved our models' accuracy. We also recognize the value of incorporating more advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA) to reduce dimensionality and focus on the most impactful features.
+Reflecting on our project, we recognize several areas for improvement. Integrating more diverse datasets, such as satellite data, could enhance our analysis. Advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA), could improve model accuracy. Exploring more sophisticated machine learning models like ensemble methods or deep learning architectures might also yield better results. Extensive hyperparameter tuning and addressing data quality issues, particularly handling missing values and outliers, are crucial for reliable predictions. Implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
 
-Furthermore, applying more sophisticated machine learning models like ensemble methods (e.g., Random Forests or Gradient Boosting) or experimenting with deep learning architectures might have provided better results. Additionally, a more extensive hyperparameter tuning process for our neural network and KNN models could have optimized their performance further.
+In conclusion, thorough data exploration and preprocessing are vital for building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables. The insights gained from this project contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. Future work should focus on refining feature engineering, exploring advanced modeling techniques, and continually updating the dataset to maintain prediction accuracy.
 
-We also acknowledge the importance of addressing data quality issues more thoroughly, particularly handling missing values and outliers. Ensuring the data is clean and accurately reflects real-world conditions is crucial for reliable predictions. In future projects, implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
-
-In conclusion, our analysis underscores the value of thorough data exploration and preprocessing in building effective predictive models. By incorporating a wide range of features and focusing on temporal patterns, we were able to enhance our models' accuracy. The KNN model, in particular, demonstrated superior performance in predicting weather variables compared to the neural network. The insights gained from this project contribute to better understanding weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. Future work could focus on further refining feature engineering, exploring more advanced modeling techniques, and continually updating the dataset to maintain prediction accuracy. This project has provided a solid foundation, and we are excited about the possibilities for further improving weather prediction models.
 
 </details>
 
 <details open>
 <summary><h2>Statement of Collaboration</h2></summary>
+
+### Oswaldo Medina Jr
+- Worked on the preprocessing and data exploration of the dataset to answer the questions.
+- Found and prepared the dataset, forming the features for the project’s needs.
+- Collaborated on the models by providing input and working on plotting some graphs.
+
+### Isaiah Ton
+- Conducted preprocessing and data exploration to address the questions posed.
+- Contributed to model development by offering insights and creating several plots.
+- Collaborated on the correlation matrix and worked on identifying features to improve the models.
+
+### Saumya Sadh
+- Focused on developing models by providing input and creating several plots.
+- Worked on the correlation matrix and regression analysis.
+- Developed and tested the KNN model and various other models.
+- Handled preprocessing and data exploration to ensure the dataset addressed the necessary questions.
+
+### Marc Reta
+- Specialized in model development for the neural network, offering insights and generating plots.
+- Performed normalization and encoding for the inputs and outputs of the neural network model.
+- Experimented with different functions and layer combinations.
+- Contributed to preprocessing and data exploration to effectively predict future weather.
+
+### Kening Li
+- Focused on model creation by contributing insights and plotting results.
+- Conducted preprocessing and data exploration to answer the research questions.
+- Assisted in debugging errors.
+- Collaborated on the correlation matrix and provided valuable insights for the models.
+
+**Everyone Worked Equally**
 
 
 
