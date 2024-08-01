@@ -4,64 +4,53 @@
 <summary><h2>Introduction</h2></summary>
 &nbsp;
 
-The focus of the project was to analyze and predict weather conditions in Los Angeles County using a dataset maintained and saved by the California Weather Government Website. The dataset includes over twenty years of weather data, which is essential for predicting weather conditions on an hourly basis. By understanding trends and patterns, we can use weather variables such as temperature, humidity, and wind speed to gain insights into climate change and its local impact.
+The focus of the project was to analyze and predict weather conditions in Los Angeles County using a dataset maintained and saved by the California Weather Government Website. The dataset includes over twenty years of weather data, which is essential for predicting weather conditions on an hourly basis. Specifically, we aimed to predict three key weather variables: temperature, wind speed, sea pressure, and humidity, using hours, days, and years as features. By understanding trends and patterns in these variables, we can gain insights into climate change and its local impact.
+
 We chose this project because global warming and climate change are issues that affect all of us. Selecting a project that allows us to observe these changes in our backyard can help bring the message home. Accurate weather predictions can improve resource management, provide timely warnings for extreme weather events, and support informed decision-making processes. The broader impact of this work includes practical applications in urban planning, public safety, and environmental conservation, making it a valuable contribution to both scientific research and community welfare.
 
-
-
 </details>
+
 
 <details open>
 <summary><h2>Methods</h2></summary>
 
 ## Data Exploration 
 &nbsp;
-
-We initially started our data exploration by analyzing the correlation between weather changes over the past few decades and their direct impact on wildfire patterns. We were able to get data of where and when wildfires occurred in Los Angeles County through the California Wildfires Government Website. We started to realized when we started merging the two datasets from California Weather and California Wildfires that we only had 991 rows to train our model with which isn’t enough rows. As a result, we quickly decided to remove the the wildfire dataset and only use the weather dataset from the California Weather Government Website. With our weather dataset alone, we were able to use 205642 rows for our models.  As a result, we decided to analyze and predict weather conditions in Los Angeles County instead.
-
-
-
-
-
-
-&nbsp;
+We initially started our data exploration by analyzing the correlation between weather changes over the past few decades and their direct impact on wildfire patterns. We were able to get data of where and when wildfires occurred in Los Angeles County through the California Wildfires Government Website. We started to realize when we started merging the two datasets from California Weather and California Wildfires that we only had 991 rows to train our model with, which isn’t enough rows. As a result, we quickly decided to remove the wildfire dataset and only use the weather dataset from the California Weather Government Website. With our weather dataset alone, we were able to use 205,642 rows for our models. As a result, we decided to analyze and predict weather conditions in Los Angeles County instead.
 
 ## Pre-Processing
 
 The preprocessing phase focused on cleaning and preparing our data from the weather stations in Los Angeles for modeling. To ensure that our model produced the best output, we took the following steps:
 
-## Dropping Unnecessary Columns:
+### Dropping Unnecessary Columns:
 Many columns were determined to be irrelevant for predicting the weather in LA County. These columns included 'Unnamed: 32', 'Unnamed: 41', 'metar', 'metar_origin', 'pressure_change_code', 'weather_cond_code', 'pressure_change_code', 'visibility', 'cloud_layer_1', 'cloud_layer_2', 'cloud_layer_3', 'wind_cardinal_direction', 'cloud_layer_1_code', 'cloud_layer_2_code', 'cloud_layer_3_code', and 'heat_index'.
 
-## Handling Missing Values:
+### Handling Missing Values:
 Missing values were common in many columns, but for our target column, 'air_temp', there were only a few missing values. We handled this by dropping those rows, and for numeric columns, we replaced missing values with the mean of their respective columns to maintain consistency.
 
-## Data Type Conversion:
+### Data Type Conversion:
 The 'air_temp' column was converted to a numeric type to ensure accurate calculations during modeling.
 
-## Date and Time Components Extraction:
+### Date and Time Components Extraction:
 The 'date_time' column was converted to a datetime format, and additional columns for year, month, day, and hour were extracted. This allowed for a more detailed interpretation of the weather data and enabled us to model weather conditions based on hourly data.
 
-## Calculating Hourly and Yearly Averages:
+### Calculating Hourly and Yearly Averages:
 Hourly average temperatures were calculated by grouping data by year, month, day, and hour. Similar calculations were performed for wind speed and sea level pressure to obtain hourly averages. Yearly average temperatures and precipitation were also calculated to observe long-term trends.
 
-## Normalization:
-Features such as temperature, wind speed, and sea level pressure were normalized using MinMaxScaler to ensure that our features remained consistent. This step was crucial for improving the performance of our models.
+### Normalization:
+Features such as temperature, wind speed, and sea level pressure were normalized using `MinMaxScaler` to ensure that our features remained consistent. This step was crucial for improving the performance of our models.
 
-## Scatter Plot:
-
+### Scatter Plot:
 ![scatterplot](https://github.com/user-attachments/assets/8dcf46ea-5671-473e-a66e-62f071899ac0)
 
-The scatter plot that we made involved the the yearly average temperature over a 24 years spanning 2000 to 2024. With each blue dot representing the average temperature for a specific year. The X-axis shows the years, and Y-axis represents the yearly average temperatures. The plot reveals variability in average temperatures across the years, indicating fluctuations and possible trends in temperature changes. This visualization helps identify patterns, such as increasing or decreasing temperatures, which may indicate climate change. It also highlights any outliers or unusual values that warrant further investigation, providing a foundational understanding for further analysis and modeling.
+The scatter plot that we made involved the yearly average temperature over 24 years spanning 2000 to 2024. Each blue dot represents the average temperature for a specific year. The X-axis shows the years, and the Y-axis represents the yearly average temperatures. The plot reveals variability in average temperatures across the years, indicating fluctuations and possible trends in temperature changes. This visualization helps identify patterns, such as increasing or decreasing temperatures, which may indicate climate change. It also highlights any outliers or unusual values that warrant further investigation, providing a foundational understanding for further analysis and modeling.
 
-
-## Pair Plot:
-
+### Pair Plot:
 ![pairplot](https://github.com/user-attachments/assets/143dd7cc-a989-4852-8956-bfea441d2993)
 
 The pair plot shows the relationships between various weather variables in our dataset. It helps us see patterns, correlations, and potential outliers that are important for building predictive models.
 
-The plots for year, month, day, and hour show how data points are distributed over time. The month, day, and hour data are collected at regular intervals, while the year data is spread continuously from 2000 to 2025. 
+The plots for year, month, day, and hour show how data points are distributed over time. The month, day, and hour data are collected at regular intervals, while the year data is spread continuously from 2000 to 2025.
 
 Sea level pressure varies widely but often centers around 1010-1020 hPa. There are noticeable changes in sea level pressure across different months and hours, hinting at seasonal and daily effects. Relative humidity ranges from 0% to 100%, showing a negative correlation with air temperature and hourly average temperature. This means higher temperatures generally come with lower humidity.
 
@@ -71,10 +60,8 @@ These insights are useful for predictive modeling. Air temperature, sea level pr
 
 In conclusion, the pair plot helps us understand the relationships between weather variables, highlighting the importance of temporal patterns and correlations for predictive modeling. These insights will help us build more accurate and reliable weather prediction models. This analysis underscores the value of exploratory data analysis in guiding the modeling process.
 
-
-## Correlation Matrix: 
-
-![correlation](https://github.com/user-attachments/assets/4693697d-9a74-4bfb-b8e6-7488d896ba50)
+### Correlation Matrix:
+![correlation](https://github.com/user-attachments/assets/fcc597e5-07e2-49f9-a7a1-eac611271665)
 
 The correlation matrix heatmap shows the relationships between different weather variables in our dataset. This is important for selecting features for predictive modeling and understanding how these variables interact.
 
@@ -88,21 +75,42 @@ These correlations are useful for predictive modeling. Variables like air temper
 
 In conclusion, the correlation matrix heatmap helps us understand the relationships between weather variables. Strong correlations between temperature-related variables highlight their connections, while weak correlations with long-term factors suggest that immediate conditions are more important for weather predictions. This understanding will help us select the right features and improve the accuracy of our predictive models.
 
-
-
-
 &nbsp;
-## Model 1: Neural Network 
 
+# Weather Prediction Model 1: Neural Network
 
-For our first ever model, we decided to create a neural network that can be used to predict the temperature, wind speed, sea level pressure, and humidity. To predict the temperature, wind speed, and sea level pressure based on the hour of the day, we first prepared and cleaned our data. We extracted the relevant features from their respective DataFrames and combined them into a single DataFrame, removing any rows with missing values. After separating the cleaned data into individual columns for hour, temperature, wind speed, and sea level pressure, we normalized the temperature, wind speed, and sea level pressure features using MinMaxScaler to ensure they were within a range of 0 to 1. The hour column was used as the input feature (X), while the normalized temperature, wind speed, humidity, and sea level pressure columns were combined to form the target labels (y).
+The first model we employed for weather prediction is a Neural Network. Neural networks are powerful tools for capturing complex relationships in data, making them suitable for problems where the underlying structure might not be linear. Here's a breakdown of the approach we took:
 
-Next, we built and trained a neural network model using Keras. We split our dataset into training and test sets and created a neural network with an input layer, two hidden layers, and an output layer. The model was compiled using Stochastic Gradient Descent (SGD) as the optimizer and Mean Squared Error (MSE) as the loss function. We trained the model for 20 epochs with a batch size of 32, validated it on a portion of the training data, and then evaluated its performance on the test set. Finally, we used the trained model to predict the labels for the test set and compared these predictions with the actual values to assess the model's accuracy. Our model 1 has a mse around 0.19 which indicates a somewhat accurate prediction.
+## Data Preprocessing
 
+1. **Handling missing values**:
+   - **Temperature**: Filled with the mean value.
+   - **Wind Speed**: Filled with the median value.
+   - **Sea Pressure**: Filled with the mean value.
 
+2. **Feature selection**:
+   - We focused on the hour as the only feature to predict the weather variables (temperature, wind speed, sea pressure, and humidity).
 
+3. **Normalization**:
+   - We normalized the temperature and wind speed features using `MinMaxScaler` to ensure all features are on the same scale.
 
+## Model Building
 
+1. **Splitting data**:
+   - We split the data into training and testing sets with an 80/20 ratio. The training set is used to train the model, and the testing set is used to evaluate its performance on unseen data.
+
+2. **Neural Network architecture**:
+   - **Input layer**: Takes the hour value as input.
+   - **Hidden layers**: Two hidden layers with 12 and 8 neurons respectively, each using a ReLU activation function for non-linearity.
+   - **Output layer**: Contains four neurons, one for each target variable (temperature, wind speed, sea pressure, and humidity). It also uses a ReLU activation function.
+
+3. **Training**:
+   - We trained the model using the Stochastic Gradient Descent (SGD) optimizer with a learning rate of 0.3 and a mean squared error (mse) loss function.
+   - We trained the model for 20 epochs with a batch size of 32 and a validation split of 0.1 to monitor performance on a held-out validation set during training.
+
+---
+
+This structured approach allows us to leverage the power of neural networks to predict multiple weather variables effectively.
 
 &nbsp;
 
@@ -163,7 +171,28 @@ plt.show()
 <details open>
 <summary><h2>Results</h2></summary>
 
-## Model 1 
+## Model 1: Neural Network 
+
+### Overview
+The neural network model was trained to predict three key weather variables: temperature, wind speed, and sea pressure using hours, days, and years as features. The model architecture included an input layer, two hidden layers, and an output layer, with ReLU activation functions to capture non-linear relationships.
+
+### Model Performance
+The model's performance was evaluated using Mean Squared Error (MSE) as the primary metric. Here are the key results:
+
+- **Training and Validation Loss**: Throughout the 20 epochs of training, both the training loss and validation loss stabilized around 0.1827, indicating that the model did not overfit to the training data but also struggled to improve significantly.
+- **Test Loss**: The model achieved a final test loss (MSE) of 0.1826, which is consistent with the training and validation loss, showing that the model's predictions on unseen data were in line with its performance on the training data.
+
+### Predicted vs. Actual Values
+Upon evaluating the model's predictions, the following observations were made:
+
+- **Temperature**: The model was able to capture the general trends in temperature variations but showed some deviations from the actual values. This indicates that while the model can predict temperature to a certain extent, there is room for improvement in accuracy.
+- **Wind Speed**: The predictions for wind speed had a higher degree of error compared to temperature. Wind speed is inherently more variable and influenced by multiple
+
+
+
+
+
+
 
 
 
@@ -281,32 +310,28 @@ Implement cross-validation to better estimate the model's performance and reduce
 <summary><h2>Conclusion</h2></summary>
 &nbsp;
 
-In this project, we explored and analyzed a weather dataset to develop predictive models for temperature and precipitation. By examining the data, we identified patterns such as daily and seasonal temperature changes, and yearly trends in temperature and rainfall. These insights helped guide our modeling choices.
-&nbsp;
+In this project, we aimed to analyze and predict weather conditions in Los Angeles County using a comprehensive dataset from the California Weather Government Website, which includes over twenty years of weather data. Our focus was on identifying trends and patterns in temperature, humidity, wind speed, and other weather variables to understand the local impact of climate change and improve weather prediction accuracy.
 
-Our preprocessing steps included removing unnecessary columns, filling in missing values, and extracting date and time components. This ensured the data was clean and ready for modeling.
-&nbsp;
+We began our data exploration by attempting to correlate weather changes with wildfire patterns. However, due to insufficient data when merging the two datasets, we decided to focus solely on the weather data, resulting in a robust dataset of 205,642 rows. Our preprocessing steps included dropping unnecessary columns, handling missing values, converting data types, and extracting date and time components. We also calculated hourly and yearly averages and normalized key features to prepare the data for modeling.
 
-We tested three models: Linear Regression, Neural Network, and K-Nearest Neighbors (KNN). The Linear Regression model performed best with an MSE of 11.77 and an R² Score of 0.48. The Neural Network struggled with an MSE of 0.17. The KNN model had an MSE of 0.00524 for temperature, 0.0186 for wind, and 0.00661 for sea pressure, performing slightly better than the Neural Network but not as well as Linear Regression.
+Our analysis included creating scatter plots, pair plots, and correlation matrix heatmaps to visualize relationships between variables and identify significant patterns. We initially developed a neural network model to predict temperature, wind speed, sea level pressure, and humidity based on hourly data. The model achieved a mean squared error (MSE) of 0.19, indicating moderate prediction accuracy. 
 
-&nbsp;
-These results suggest that the simpler Linear Regression model captured the data patterns effectively, while the more complex models may need further tuning and feature engineering.
-&nbsp;
+We then implemented a K-Nearest Neighbors (KNN) model, which showed promising results with low MSE values for temperature (0.00524), wind speed (0.0186), and sea pressure (0.00661). This model effectively captured the temporal patterns and variations in temperature, although it struggled more with the variability in wind speed. The KNN model's performance was superior to the neural network, highlighting its effectiveness in predicting weather variables.
 
-Looking back, there are several things we wish we could have done differently. Firstly, exploring additional features or transformations might have uncovered hidden patterns and improved the performance of the more complex models. For example, incorporating interaction terms or lagged variables could have helped capture temporal dependencies in the weather data. Additionally, trying out ensemble methods, such as Random Forests or Gradient Boosting, might have provided better predictions by combining the strengths of multiple models.
-&nbsp;
+Reflecting on our project, there are several things we wish we could have done differently. Firstly, integrating more diverse datasets, such as satellite data or other regional weather records, could have enriched our analysis and potentially improved our models' accuracy. We also recognize the value of incorporating more advanced feature engineering techniques, such as creating interaction terms or using principal component analysis (PCA) to reduce dimensionality and focus on the most impactful features.
 
-Another area for improvement is data quality. Ensuring more accurate and consistent data collection, and addressing inconsistencies more thoroughly during preprocessing, could lead to more reliable predictions. Finally, conducting a more extensive hyperparameter tuning for the Neural Network and KNN models might have yielded better results.
-&nbsp;
+Furthermore, applying more sophisticated machine learning models like ensemble methods (e.g., Random Forests or Gradient Boosting) or experimenting with deep learning architectures might have provided better results. Additionally, a more extensive hyperparameter tuning process for our neural network and KNN models could have optimized their performance further.
 
-In future projects, we would focus on these aspects to enhance model performance. This project highlights the critical role of data exploration and preprocessing in building effective predictive models. Continuous improvements in these areas are key to achieving more accurate and reliable weather predictions.
+We also acknowledge the importance of addressing data quality issues more thoroughly, particularly handling missing values and outliers. Ensuring the data is clean and accurately reflects real-world conditions is crucial for reliable predictions. In future projects, implementing cross-validation techniques, such as time-series split, could help in better evaluating model performance and reducing overfitting.
 
-&nbsp;
+In conclusion, our analysis underscores the value of thorough data exploration and preprocessing in building effective predictive models. By incorporating a wide range of features and focusing on temporal patterns, we were able to enhance our models' accuracy. The KNN model, in particular, demonstrated superior performance in predicting weather variables compared to the neural network. The insights gained from this project contribute to better understanding weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. Future work could focus on further refining feature engineering, exploring more advanced modeling techniques, and continually updating the dataset to maintain prediction accuracy. This project has provided a solid foundation, and we are excited about the possibilities for further improving weather prediction models.
 
 </details>
 
 <details open>
 <summary><h2>Statement of Collaboration</h2></summary>
+
+
 
 </details>
 
