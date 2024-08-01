@@ -305,9 +305,7 @@ The results, particularly from the KNN model, are believable given the dataset a
 
 Future projects should focus on integrating additional datasets to enrich the analysis. Exploring more advanced machine learning models like ensemble methods (Random Forests or Gradient Boosting) or deep learning architectures could provide better results. Extensive hyperparameter tuning and cross-validation techniques are essential for optimizing model performance. Addressing data quality issues and continually updating the dataset will also be crucial for maintaining prediction accuracy.
 
-## Conclusion
 
-Our project underscores the value of thorough data exploration and preprocessing in building effective predictive models. The KNN model demonstrated superior performance in predicting weather variables compared to the neural network. These insights contribute to a better understanding of weather patterns in Los Angeles County and support efforts in urban planning, public safety, and environmental conservation. We are excited about the possibilities for further improving weather prediction models and look forward to refining our approach in future projects.
 
 </details>
 
